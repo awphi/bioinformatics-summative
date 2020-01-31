@@ -4,10 +4,7 @@ import sys
 
 
 # YOUR FUNCTIONS GO HERE -------------------------------------
-def match(seq1, seq2, i):
-	s1 = seq1[i]
-	s2 = seq2[i]
-	
+def match(s1, s2):	
 	if(s1 == '-' or s2 == '-'):
 		return -4
 	elif(s1 == 'A' and s2 == 'A'):
@@ -15,7 +12,7 @@ def match(seq1, seq2, i):
 	elif(s1 == 'C' and s2 == 'C'):
 		return 2
 	elif(s1 == 'G' and s2 == 'G'):
-		return 1
+		return 1 
 	elif(s1 == 'T' and s2 == 'T'):
 		return 2
 
@@ -24,7 +21,7 @@ def match(seq1, seq2, i):
 def score(seq1, seq2):
 	s = 0
 	for i in range(len(seq1)):
-		s += match(seq1, seq2, i)
+		s += match(seq1[i], seq2[i])
 	return s
 
 def align(bank1, bank2, seq1, seq2, arr):
