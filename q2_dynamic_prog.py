@@ -42,10 +42,10 @@ def s(mx, j , i):
         options['D'] = match(mx[j][0], mx[0][i]) + mx[j - 1][i - 1]
 
     if(j > 1):
-        options['U'] = mx[j - 1][i] - 2
+        options['U'] = mx[j - 1][i] - 4
 
     if(i > 1):
-        options['L'] = mx[j][i - 1] - 2
+        options['L'] = mx[j][i - 1] - 4
 
     return options
 
