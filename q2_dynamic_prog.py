@@ -5,6 +5,7 @@ import sys
 
 # YOUR FUNCTIONS GO HERE -------------------------------------
 def match(s1, s2):  
+    # gap penalty
     if(s1 == '-' or s2 == '-'):
         return -4
     elif(s1 == 'A' and s2 == 'A'):
@@ -16,6 +17,7 @@ def match(s1, s2):
     elif(s1 == 'T' and s2 == 'T'):
         return 2
 
+    #mismatching bases
     return -3
 
 def matrix(seq1, seq2):
