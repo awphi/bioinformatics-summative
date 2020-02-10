@@ -75,6 +75,7 @@ def merge(a, b, mx):
 	
 	return bD
 
+# merges + recalculates the matrix
 def cluster(a, b, mx, qmx):
 	ab = a + b
 	cache = merge(a, b, mx)
@@ -95,6 +96,7 @@ def cluster(a, b, mx, qmx):
 	for i in range(1, len(mx)):
 		mx[i][-1] = sum(mx[i][1:-1])
 
+# fills the q matrix 
 def calculate_qs(qmx, mx, r):
 	c = 2
 	for i in range(1, len(qmx)):
@@ -102,6 +104,7 @@ def calculate_qs(qmx, mx, r):
 			qmx[i][j] = Q(qmx[i][0], qmx[0][j], r, mx)
 		c += 1
 
+# finds the lowest q value in the q matrix
 def lowest_q(qmx):
 	lowestQ = None
 	lowestP = None
@@ -117,6 +120,7 @@ def lowest_q(qmx):
 
 	return lowestP
 
+# calculates Q value of an a and b
 def Q(a, b, r, mx):
 	for i in mx:
 		if(i[0] == a):
@@ -141,6 +145,7 @@ def matrix(dat):
 		mx.append(row)
 	return mx
 
+# removed distance values from the matrix to make it a 'q matrix'
 def qmatrix(dat):
 	mx = matrix(dat)
 	for i in range(1, len(mx)):
@@ -148,6 +153,7 @@ def qmatrix(dat):
 			mx[i][j] = '-'
 	return mx
 
+# prints all required info of a NJ stage
 def print_stage(mx, qmx, n):
 	print("------ n = "+ str(n) + ": ------")
 	print_matrix(mx)
@@ -155,5 +161,3 @@ def print_stage(mx, qmx, n):
 	print("Q-matrix: ")
 	print_matrix(qmx)
 	print(" ")
-
-NJ("./tests/matrix3")
